@@ -2,8 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "pnpm run embeddings && next build",
+    "start": "next start",
+    "embeddings": "tsx lib/generate-embeddings.ts"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.13",
@@ -25,5 +26,8 @@
     "sugar-high": "^0.6.0",
     "tailwindcss": "4.0.0-alpha.13",
     "typescript": "5.3.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
   }
 }
