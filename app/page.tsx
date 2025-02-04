@@ -1,3 +1,5 @@
+import TextInputResponse from "app/components/ai-question";
+
 export default function Page() {
   return (
     <section>
@@ -7,6 +9,9 @@ export default function Page() {
       <p className="mb-4">
         {`frontend 연습용으로 만든 개인 블로그입니다.`}
       </p>
+      <div className="flex justify-center items-center min-h-screen">
+        <TextInputResponse />
+      </div>
     </section>
   )
 }
