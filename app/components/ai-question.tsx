@@ -14,17 +14,16 @@ const TextInput = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center gap-2">
-      <input
-        type="text"
+    <form onSubmit={handleSubmit} className="flex items-center gap-2 w-full">
+      <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full h-24 resize-none"
         placeholder="Type something..."
       />
       <button
         type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition whitespace-nowrap"
       >
         질문하기
       </button>
@@ -34,8 +33,8 @@ const TextInput = ({ onSubmit }) => {
 
 const TextResponse = ({ text, loading }) => {
   return (
-    <div className="mt-4 p-4 border rounded-md bg-gray-100 text-gray-700">
-      <p>{loading ? "Loading..." : `Response: ${text ? `You typed: "${text}"` : "Waiting for input..."}`}</p>
+    <div className="mt-4 p-4 border rounded-md bg-gray-100 text-gray-700 whitespace-pre-line">
+      <p>{loading ? "Loading..." : `${text ? `${text}` : "Waiting for input..."}`}</p>
       </div>
   );
 };
