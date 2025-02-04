@@ -75,7 +75,8 @@ export async function POST(req: Request) {
       const encoded = tokenizer.encode(content);
       tokenCount += encoded.text.length;
 
-      if (tokenCount >= 1500) {
+      console.log(tokenCount)
+      if (tokenCount >= 5000) {
         break;
       }
 
@@ -97,7 +98,8 @@ export async function POST(req: Request) {
     const prePrompt = `
       You are a very enthusiastic representative who loves to help people!
       Given the following sections from the documentation, answer the question using only that information,
-      outputted in markdown format. If you are unsure and the answer is not explicitly written in the documentation, say
+      outputted in markdown format. 답변할 때, 마크다운 관련 문법은 지우고 말해줘. 예를 들어 '##'이나 '**' 같은 것들이 있어.
+      If you are unsure and the answer is not explicitly written in the documentation, say
       "죄송하지만, 해당 내용은 알 수 없어요! 이 블로그에 관한 내용만 질문해주세요!"
     `;
 
@@ -114,6 +116,7 @@ export async function POST(req: Request) {
     const answer = chatResponse.choices[0].message.content?.trim() || 'No answer provided.';
 
     // 6. 답변 반환
+    console.log(answer)
     return NextResponse.json({ answer });
   } catch (error) {
     console.error('OpenAI API 호출 중 오류 발생:', error);
