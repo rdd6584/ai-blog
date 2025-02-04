@@ -18,7 +18,7 @@ const TextInput = ({ onSubmit }) => {
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full h-24 resize-none"
+        className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full h-24 resize-none max-w-xl"
         placeholder="Type something..."
       />
       <button
@@ -33,7 +33,7 @@ const TextInput = ({ onSubmit }) => {
 
 const TextResponse = ({ text, loading }) => {
   return (
-    <div className="mt-4 p-4 border rounded-md bg-gray-100 text-gray-700 whitespace-pre-line">
+    <div className="mt-4 p-4 border rounded-md bg-gray-100 text-gray-700 whitespace-pre-line w-full max-w-xl">
       <p>{loading ? "Loading..." : `${text ? `${text}` : "Waiting for input..."}`}</p>
       </div>
   );
@@ -68,7 +68,7 @@ export default function TextInputResponse() {
   }
 
   return (
-    <div className="flex flex-col items-center p-6">
+    <div className="flex flex-col items-center p-6 w-full max-w-xl">
       <TextInput onSubmit={CreateResponse} />
       <TextResponse text={response} loading={loading} />
     </div>
